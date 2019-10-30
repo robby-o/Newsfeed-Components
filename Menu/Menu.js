@@ -25,12 +25,29 @@ function createMenu(items) {
   const menuButton = document.querySelector(".menu-button");
 
   menuButton.addEventListener("click", e => {
-    menu.classList.toggle("menu--open");
-    if (menu.classList.contains("slideIn")) {
-      menu.classList.toggle("slideOut");
+    e.stopPropagation;
+    if (menu.classList.contains("menu--open")) {
+      menu.classList.add("slideOut");
+      window.setTimeout(() => {
+        menu.classList.remove("menu--open");
+        menu.classList.remove("slideOut");
+      }, 1000);
     } else {
-      menu.classList.toggle("slideIn");
+      menu.classList.add("menu--open");
+      menu.classList.add("slideIn");
     }
+
+    const articles = document.querySelector(".articles");
+    articles.addEventListener("click", e => {
+      if (menu.classList.contains("menu--open")) {
+        menu.classList.add("slideOut");
+        window.setTimeout(() => {
+          menu.classList.remove("menu--open");
+          menu.classList.remove("slideOut");
+        }, 1000);
+      }
+    });
+    // menu.classList.toggle("menu--open");
   });
 
   return menu;
