@@ -105,12 +105,14 @@ function createArticle(data) {
   const p2 = document.createElement("p");
   const p3 = document.createElement("p");
   const button = document.createElement("span");
+  const readButton = document.createElement("button");
 
-  article.append(title, date, p1, p2, p3, button);
+  article.append(title, date, p1, p2, p3, button, readButton);
 
   article.classList.add("article");
   date.classList.add("date");
   button.classList.add("expandButton");
+  readButton.classList.add("close");
 
   title.textContent = data.title;
   date.textContent = data.date;
@@ -118,9 +120,14 @@ function createArticle(data) {
   p2.textContent = data.secondParagraph;
   p3.textContent = data.thirdParagraph;
   button.textContent = "open/close";
+  readButton.textContent = "read";
 
   button.addEventListener("click", e => {
     article.classList.toggle("article-open");
+  });
+
+  readButton.addEventListener("click", e => {
+    article.style.display = "none";
   });
 
   return article;
