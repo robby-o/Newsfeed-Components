@@ -119,11 +119,16 @@ function createArticle(data) {
   p1.textContent = data.firstParagraph;
   p2.textContent = data.secondParagraph;
   p3.textContent = data.thirdParagraph;
-  button.textContent = "open/close";
+  button.textContent = "Click to expand";
   readButton.textContent = "read";
 
   button.addEventListener("click", e => {
     article.classList.toggle("article-open");
+    if (article.classList.contains("article-open")) {
+      button.textContent = "Click to close";
+    } else {
+      button.textContent = "Click to expand";
+    }
   });
 
   readButton.addEventListener("click", e => {
