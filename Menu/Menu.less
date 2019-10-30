@@ -16,7 +16,6 @@
   border-left: none;
   border-bottom: none;
   z-index: 2; /* This set the layer level of the element, it has precendence over initial level of 1*/
-  animation: slideIn 1s ease;
 }
 
 .menu ul li {
@@ -30,11 +29,27 @@
   display: block;
 }
 
+.slideIn {
+  animation: slideIn 1s ease;
+}
+.slideOut {
+  animation: slideOut 1s ease;
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(-200px);
   }
   to {
     transform: translateX(0px);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-200px);
   }
 }

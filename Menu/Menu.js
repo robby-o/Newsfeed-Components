@@ -23,9 +23,16 @@ function createMenu(items) {
   });
 
   const menuButton = document.querySelector(".menu-button");
+
   menuButton.addEventListener("click", e => {
     menu.classList.toggle("menu--open");
+    if (menu.classList.contains("slideIn")) {
+      menu.classList.toggle("slideOut");
+    } else {
+      menu.classList.toggle("slideIn");
+    }
   });
+
   return menu;
 }
 
